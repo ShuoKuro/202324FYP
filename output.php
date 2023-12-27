@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['query_result'])) {
+    header('Location: ./index.php');
+    exit();
+}
+?>
+
 <html>
 
 <head>
@@ -7,30 +15,28 @@
 
 <body>
     <?php
-    session_start(); // 开始会话
-    
-    if (isset($_SESSION['query_result'])) { // 检查会话变量是否存在
-        $row = $_SESSION['query_result'];
-        $keys = array_keys($row);
-        $values = array_values($row);
+    $row = $_SESSION['query_result'];
+    $keys = array_keys($row);
+    $values = array_values($row);
 
-        echo "<table border='1'>";
-        echo "<tr>";
-        for ($i = 0; $i < count($keys); $i++) {
-            echo "<th>{$keys[$i]}</th>";
-        }
-        echo "</tr>";
-        echo "<tr>";
-        for ($i = 0; $i < count($values); $i++) {
-            echo "<td>{$values[$i]}</td>";
-        }
-        echo "</tr>";
-        echo "</table>";
-    } else {
-        echo "No results";
+    echo "<table border='1'>";
+    echo "<tr>";
+    for ($i = 0; $i < count($keys); $i++) {
+        echo "<th>{$keys[$i]}</th>";
     }
-    ?>
 
+    echo "</tr>";
+    echo "<tr>";
+
+    for ($i = 0; $i < count($values); $i++) {
+        echo "<td>{$values[$i]}</td>";
+    }
+
+    echo "</tr>";
+    echo "</table>";
+
+    unset($_SESSION['query_result']);
+    ?>
 </body>
 
 </html>
