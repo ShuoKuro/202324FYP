@@ -6,13 +6,13 @@
 </head>
 
 <body>
-    Campus INPUT FROM
-    <form action="./Handler/loginHandler.php" method="post">
+    Campus INPUT FORM
+    <form action="./Handler/testHandler.php" method="post">
 
         <br>
-        <label for="UserID">UserID:</label>
+        <label for="UserID">UserID:(BY TEST ACCOUNT: 0000000000)</label>
         <br>
-        <input type="text" name="UserID" value=" ">
+        <input type="text" name="UserID" value="0000000000">
         <br>
 
         <br>
