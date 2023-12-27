@@ -30,6 +30,19 @@
         <br>
         <input type="submit" value="submit">
     </form>
+    <hr>
+    Campus FIND FORM
+    <form action="./Handler/testFindHandler.php" method="post">
+
+        <br>
+        <label for="ReceiptID">ReceiptID:</label>
+        <br>
+        <input type="text" name="ReceiptID">
+        <br>
+
+        <br>
+        <input type="submit" value="submit">
+    </form>
 </body>
 
 </html>
