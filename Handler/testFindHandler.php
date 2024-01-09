@@ -2,7 +2,7 @@
 session_start();
 include("../db.php");
 
-$ReceiptID = $_POST["ReceiptID"];
+$ReceiptID = $_GET["ReceiptID"];
 $table = "paymentreceipts";
 
 $sql = "SELECT * FROM $table WHERE ReceiptID = '$ReceiptID'";

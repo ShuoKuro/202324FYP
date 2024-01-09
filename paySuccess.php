@@ -14,7 +14,6 @@ function alert($message)
 }
 ?>
 
-
 <html>
 
 <head>
@@ -53,17 +52,13 @@ function alert($message)
             }
             echo "</table>";
             #endregion
+        
         }
+        session_destroy();
         ?>
 
         <div style="height:20%; display: flex; align-items: center; justify-content: center;">
-            <h1 style="text-align:center;">Please check the information is correct</h1>
-        </div>
-        <div style="height:10%; display: flex; align-items: center; justify-content: center;">
-            <form action="./Handler/testpay.php" method="post">
-                <br>
-                <input type="submit" value="Confirm" style="font-size: 2em;">
-            </form>
+            <h1 style="text-align:center;">Payment Successful</h1>
         </div>
 
     </div>

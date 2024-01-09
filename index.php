@@ -10,7 +10,7 @@
     <form action="./Handler/testHandler.php" method="post">
 
         <br>
-        <label for="UserID">UserID:(BY TEST ACCOUNT: 0000000000)</label>
+        <label for="UserID">StudentID:(BY TEST ACCOUNT: 0000000000)</label>
         <br>
         <input type="text" name="UserID" value="0000000000">
         <br>
@@ -31,18 +31,48 @@
         <input type="submit" value="submit">
     </form>
     <hr>
-    Campus FIND FORM
-    <form action="./Handler/testFindHandler.php" method="post">
 
-        <br>
-        <label for="ReceiptID">ReceiptID:</label>
-        <br>
-        <input type="text" name="ReceiptID">
-        <br>
+    <?php
+    #region 测试输出
+    include("./db.php");
+    $table = "paymentreceipts";
+    $sql = "SELECT * FROM $table";
+    $result = mysqli_query($conn, $sql);
 
-        <br>
-        <input type="submit" value="submit">
-    </form>
+    if (mysqli_num_rows($result) > 0) {
+        echo "<table border='1'>";
+        $header = false;
+        while ($row = mysqli_fetch_assoc($result)) {
+            if (!$header) {
+                echo "<tr>";
+                foreach ($row as $key => $value) {
+                    echo "<th>{$key}</th>";
+                }
+                echo "</tr>";
+                $header = true;
+            }
+            echo "<tr>";
+            foreach ($row as $value) {
+                echo "<td>{$value}</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "没有找到结果";
+    }
+    #endregion
+    ?>
+
+    <hr>
+    Campus FIND
+
+    TESY1:
+    http://localhost/202324FYP/Handler/testFindHandler.php?ReceiptID=1
+    <br>
+    TEST过期:
+    http://localhost/202324FYP/Handler/testFindHandler.php?ReceiptID=5
+
 </body>
 
 </html>
